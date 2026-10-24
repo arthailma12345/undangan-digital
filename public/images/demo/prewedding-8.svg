@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0eafc"/><stop offset="1" stop-color="#cfdef3"/></linearGradient>
+<radialGradient id="v" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient></defs>
+<rect width="800" height="600" fill="url(#s)"/>
+<path transform='translate(400 240) scale(9)' d='M0 6C-4-4-18-2-16 8c2 8 12 14 16 18 4-4 14-10 16-18 2-10-12-12-16-2z' fill='#f7b2c4' opacity='.8'/><rect y='468' width='800' height='132' fill='#7d6e83' opacity='.4'/>
+<g transform="translate(400 476) scale(0.9375)" fill="#5b4a63">
+  <circle cx="-26" cy="-152" r="13"/>
+  <path d="M-44-136h36l3 70h-9l-3 66h-11l-3-58-3 58h-11l-3-66h-9z"/>
+  <circle cx="24" cy="-144" r="12"/>
+  <path d="M14-156c-14 10-14 40-22 70l8 2c6-24 8-48 14-62z" opacity=".55"/>
+  <path d="M13-130h22l4 34c10 30 22 62 32 96H-17c10-34 20-66 28-96z"/>
+  <path d="M-8-104c6 2 14 2 20-2" stroke="#5b4a63" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
+<rect width="800" height="600" fill="url(#v)"/>
+<text x="24" y="578" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#fff" opacity=".9">Together</text>
+</svg>

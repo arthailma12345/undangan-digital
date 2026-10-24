@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9d6ff"/><stop offset="1" stop-color="#e2e2e2"/></linearGradient>
+<radialGradient id="v" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient></defs>
+<rect width="600" height="800" fill="url(#s)"/>
+<circle cx='180' cy='176' r='45' fill='#ffffff'/><path d='M0 464 L180 264 L330 404 L480 224 L600 374 V800 H0z' fill='#8a9bc0'/><path d='M420 284 L480 224 L528 274z' fill='#fff'/><path d='M0 584 Q300 504 600 594 V800 H0z' fill='#5b6b8c'/>
+<g transform="translate(300 632) scale(1.25)" fill="#1d1018">
+  <circle cx="-26" cy="-152" r="13"/>
+  <path d="M-44-136h36l3 70h-9l-3 66h-11l-3-58-3 58h-11l-3-66h-9z"/>
+  <circle cx="24" cy="-144" r="12"/>
+  <path d="M14-156c-14 10-14 40-22 70l8 2c6-24 8-48 14-62z" opacity=".55"/>
+  <path d="M13-130h22l4 34c10 30 22 62 32 96H-17c10-34 20-66 28-96z"/>
+  <path d="M-8-104c6 2 14 2 20-2" stroke="#1d1018" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
+<rect width="600" height="800" fill="url(#v)"/>
+<text x="24" y="778" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#fff" opacity=".9">Above the Clouds</text>
+</svg>

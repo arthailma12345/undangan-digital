@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d365"/><stop offset="1" stop-color="#fda085"/></linearGradient>
+<radialGradient id="v" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient></defs>
+<rect width="600" height="600" fill="url(#s)"/>
+<circle cx='300' cy='270' r='110' fill='#fff5d6' opacity='.9'/><path d='M0 418 Q150 358 300 418 T600 408 V600 H0z' fill='#a0613b' opacity='.7'/><path d='M0 468 Q300 418 600 468 V600 H0z' fill='#6b3e26'/>
+<g transform="translate(300 476) scale(0.9375)" fill="#1d1018">
+  <circle cx="-26" cy="-152" r="13"/>
+  <path d="M-44-136h36l3 70h-9l-3 66h-11l-3-58-3 58h-11l-3-66h-9z"/>
+  <circle cx="24" cy="-144" r="12"/>
+  <path d="M14-156c-14 10-14 40-22 70l8 2c6-24 8-48 14-62z" opacity=".55"/>
+  <path d="M13-130h22l4 34c10 30 22 62 32 96H-17c10-34 20-66 28-96z"/>
+  <path d="M-8-104c6 2 14 2 20-2" stroke="#1d1018" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
+<rect width="600" height="600" fill="url(#v)"/>
+<text x="24" y="578" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#fff" opacity=".9">Forever Begins</text>
+</svg>
