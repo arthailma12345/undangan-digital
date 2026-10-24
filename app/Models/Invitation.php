@@ -76,12 +76,12 @@ class Invitation extends Model
 
         $inv = new self([
             'slug' => 'preview-'.$template->slug,
-            'groom_nickname' => 'Arya',
-            'groom_name' => 'Arya Pratama Wijaya, S.T.',
+            'groom_nickname' => 'Putra',
+            'groom_name' => 'Putra Pratama Wijaya, S.T.',
             'groom_father' => 'Bapak H. Bambang Wijaya',
             'groom_mother' => 'Ibu Hj. Sri Lestari',
             'groom_child_order' => 'Putra pertama dari',
-            'groom_instagram' => 'aryapratama',
+            'groom_instagram' => 'putrapratama',
             'bride_nickname' => 'Nadia',
             'bride_name' => 'Nadia Putri Maharani, S.Ked.',
             'bride_father' => 'Bapak Ir. Hendra Gunawan',
@@ -104,7 +104,7 @@ class Invitation extends Model
             ],
             'gallery' => array_map(fn ($n) => "/images/demo/prewedding-$n.svg", range(1, 8)),
             'gifts' => [
-                ['bank' => 'BCA', 'number' => '1234567890', 'holder' => 'Arya Pratama Wijaya'],
+                ['bank' => 'BCA', 'number' => '1234567890', 'holder' => 'Putra Pratama Wijaya'],
                 ['bank' => 'Mandiri', 'number' => '0987654321', 'holder' => 'Nadia Putri Maharani'],
             ],
             'gift_address' => 'Jl. Melati No. 8, Kebayoran Baru, Jakarta Selatan 12110',

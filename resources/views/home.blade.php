@@ -57,7 +57,7 @@
                 @include('invitation.ornament', ['type' => $t->settings['ornament'], 'class' => 'br'])
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                     <span class="text-[10px] tracking-[.35em] uppercase" style="color: {{ $c['muted'] }}">The Wedding of</span>
-                    <span class="floaty block text-5xl my-3" style="font-family: '{{ $t->settings['fonts']['script'] }}', cursive; color: {{ $c['primary'] }}; animation-delay: -{{ $i % 4 }}s">Arya &amp; Nadia</span>
+                    <span class="floaty block text-5xl my-3" style="font-family: '{{ $t->settings['fonts']['script'] }}', cursive; color: {{ $c['primary'] }}; animation-delay: -{{ $i % 4 }}s">Putra &amp; Nadia</span>
                     <span class="text-xs tracking-widest" style="color: {{ $c['text'] }}">{{ now()->addDays(45)->translatedFormat('d . m . Y') }}</span>
                 </div>
                 <span class="absolute top-3 right-3 text-[10px] px-2 py-1 rounded-full bg-black/60 text-white">#{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>

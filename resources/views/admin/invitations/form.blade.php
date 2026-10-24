@@ -49,12 +49,12 @@
         <h2 class="font-bold md:col-span-3">2. Informasi Umum</h2>
         <div>
             <label class="lbl">Slug URL (kosongkan = otomatis)</label>
-            <input name="slug" value="{{ $v('slug') }}" class="inp" placeholder="arya-nadia">
+            <input name="slug" value="{{ $v('slug') }}" class="inp" placeholder="putra-nadia">
             <small class="text-xs text-stone-500">{{ url('/u') }}/<b>slug</b></small>
         </div>
         <div>
             <label class="lbl">Judul (opsional)</label>
-            <input name="title" value="{{ $v('title') }}" class="inp" placeholder="Pernikahan Arya & Nadia">
+            <input name="title" value="{{ $v('title') }}" class="inp" placeholder="Pernikahan Putra & Nadia">
         </div>
         <div>
             <label class="lbl">Tanggal &amp; Jam Utama (countdown) *</label>

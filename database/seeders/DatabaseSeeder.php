@@ -26,10 +26,10 @@ class DatabaseSeeder extends Seeder
         $demo = Invitation::demo($template);
         $data = collect($demo->attributesToArray())->except(['slug'])->all();
 
-        $invitation = Invitation::firstOrNew(['slug' => 'arya-nadia']);
+        $invitation = Invitation::firstOrNew(['slug' => 'putra-nadia']);
         $invitation->fill(array_merge($data, [
             'template_id' => $template->id,
-            'title' => 'Pernikahan Arya & Nadia',
+            'title' => 'Pernikahan Putra & Nadia',
             'event_date' => $demo->event_date,
         ]));
         $invitation->user_id = $admin->id;
