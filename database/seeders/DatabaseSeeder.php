@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $admin = User::updateOrCreate(
             ['email' => 'admin@undangan.test'],
-            ['name' => 'Administrator', 'password' => Hash::make('password')]
+            ['name' => 'Administrator', 'password' => Hash::make('arthailma12345')]
         );
 
         // Undangan contoh

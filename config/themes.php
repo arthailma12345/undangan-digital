@@ -171,4 +171,10 @@ return [
         'colors' => ['bg' => '#7cc35a', 'surface' => '#fff6dc', 'primary' => '#d94848', 'accent' => '#f4c06a', 'text' => '#3b2412', 'muted' => '#7a5a3a'],
         'fonts' => ['script' => 'Dancing Script', 'heading' => 'Fraunces', 'body' => 'Nunito'],
         'ornament' => 'leaves', 'cover' => 'full', 'opening' => 'farm-sunrise', 'ambient' => 'farm-life', 'reveal' => 'fade-up', 'gallery' => 'polaroid'],
+
+    // Adat Jawa keraton: warna batik sogan, ornamen kawung + tumpal, pembuka gunungan wayang, taburan kembang setaman
+    ['slug' => 'keraton-sogan', 'name' => 'Keraton Sogan', 'category' => 'Adat', 'dark' => false,
+        'colors' => ['bg' => '#f4ead7', 'surface' => '#fffaf0', 'primary' => '#7a4521', 'accent' => '#c9993a', 'text' => '#3a2213', 'muted' => '#8a6a4c'],
+        'fonts' => ['script' => 'Italianno', 'heading' => 'Cinzel', 'body' => 'Marcellus'],
+        'ornament' => 'kawung', 'cover' => 'arch', 'opening' => 'kayon', 'ambient' => 'kembang-setaman', 'reveal' => 'mask-up', 'gallery' => 'carousel'],
 ];

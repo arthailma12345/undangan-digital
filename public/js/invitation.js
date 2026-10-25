@@ -454,6 +454,38 @@
                 { transform: 'rotate(600deg) scale(0)', borderRadius: '50%' },
             ], { duration: 1600, easing: 'cubic-bezier(.6,0,.4,1)' });
         },
+
+        // 31. Gunungan wayang (kayon) naik, digetarkan dalang, lalu terbang membuka layar
+        'kayon': async (c) => {
+            const lyr = layer('display:grid;place-items:center');
+            const glow = el('div', `position:absolute;left:50%;top:50%;width:80vmin;height:80vmin;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle, ${rgba(COL.accent, .55)}, transparent 65%);opacity:0`);
+            const h = Math.min(innerHeight * 0.72, 520);
+            const kayon = el('div', `position:relative;width:${h * 0.6}px;height:${h}px`, `
+                <svg viewBox="0 0 200 340" width="100%" height="100%" fill="none" stroke="${COL.accent}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <defs><linearGradient id="kayonG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${COL.primary}"/><stop offset="1" stop-color="#2a140a"/></linearGradient></defs>
+                    <path d="M100 330V292" stroke="#2a140a" stroke-width="6"/>
+                    <path d="M100 6C130 60 190 120 190 200c0 50-30 85-90 92C40 285 10 250 10 200 10 120 70 60 100 6z" fill="url(#kayonG)"/>
+                    <path d="M100 30c25 45 72 100 72 170 0 40-24 68-72 74-48-6-72-34-72-74 0-70 47-125 72-170z" stroke-dasharray="1 7"/>
+                    <path d="M100 66v156M100 110c-20-10-30-25-32-40M100 110c20-10 30-25 32-40M100 150c-26-8-44-26-48-46M100 150c26-8 44-26 48-46M100 190c-30-6-52-22-60-40M100 190c30-6 52-22 60-40"/>
+                    <g fill="${COL.accent}" stroke="none">
+                        ${[[68, 70], [132, 70], [52, 104], [148, 104], [40, 150], [160, 150], [100, 60]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5"/>`).join('')}
+                    </g>
+                    <path d="M66 274v-50h68v50M60 224h80L100 196z" fill="#2a140a"/>
+                    <path d="M90 274v-34h20v34M74 236h10M116 236h10"/>
+                </svg>`);
+            lyr.append(glow, kayon);
+            kayon.style.transformOrigin = '50% 100%';
+            anim(c, [{ filter: 'brightness(1)' }, { filter: 'brightness(.55) sepia(.4)' }], { duration: 900 });
+            anim(glow, [{ opacity: 0, scale: .4 }, { opacity: 1, scale: 1 }], { duration: 1200, easing: 'ease-out' });
+            await anim(kayon, [{ transform: 'translateY(110vh)' }, { transform: 'translateY(0)' }], { duration: 1000, easing: 'cubic-bezier(.2,.8,.3,1)' });
+            await anim(kayon, [
+                { transform: 'rotate(0)' }, { transform: 'rotate(-10deg)' }, { transform: 'rotate(8deg)' },
+                { transform: 'rotate(-5deg)' }, { transform: 'rotate(3deg)' }, { transform: 'rotate(0)' },
+            ], { duration: 1100, easing: 'ease-in-out' });
+            anim(c, [{ opacity: 1 }, { opacity: 0 }], { duration: 700 });
+            anim(glow, [{ opacity: 1, scale: 1 }, { opacity: 0, scale: 3 }], { duration: 900 });
+            await anim(kayon, [{ transform: 'translateY(0) rotate(0) scale(1)', opacity: 1 }, { transform: 'translateY(-115vh) rotate(-14deg) scale(1.15)', opacity: .9 }], { duration: 900, easing: 'cubic-bezier(.6,0,.8,.4)' });
+        },
     };
 
     /* =====================================================================
@@ -966,6 +998,35 @@
                 star4(p.s * k);
             },
         },
+        // 31. Kembang setaman: melati, kantil & kelopak mawar ditabur
+        'kembang-setaman': {
+            n: 30,
+            init: (p, f) => fallInit(p, f, { k: pick(['melati', 'melati', 'kantil', 'mawar', 'mawar']), s: rand(5, 10), vy: rand(0.45, 1), vx: rand(-0.25, 0.35), vr: rand(-0.03, 0.03) }),
+            step: (p, dt) => { p.ph += 0.02 * dt; p.x += (p.vx + Math.sin(p.ph) * 0.45) * dt; p.y += p.vy * dt; p.rot += p.vr * dt; p.flip += p.vf * 0.6 * dt; p.dead = offscreen(p); },
+            draw: (p) => {
+                const s = p.s;
+                ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+                if (p.k === 'melati') {
+                    ctx.scale(1, 0.6 + 0.4 * Math.abs(Math.cos(p.flip)));
+                    ctx.shadowBlur = 3; ctx.shadowColor = 'rgba(0,0,0,.2)';
+                    flower(s, 6, 0.28, 0.5, '#fffdf5', '#f1d27a');
+                } else if (p.k === 'kantil') {
+                    ctx.scale(Math.cos(p.flip), 1);
+                    const g = ctx.createLinearGradient(0, -s * 1.6, 0, s * 1.6);
+                    g.addColorStop(0, '#fffbea'); g.addColorStop(1, '#efdca0');
+                    ctx.fillStyle = g;
+                    ctx.beginPath(); ctx.ellipse(0, 0, s * 0.38, s * 1.6, 0, 0, TAU); ctx.fill();
+                } else {
+                    ctx.scale(Math.cos(p.flip), 1);
+                    const g = ctx.createRadialGradient(0, s * 0.3, 0, 0, 0, s * 1.2);
+                    g.addColorStop(0, '#6b0f1a'); g.addColorStop(1, '#c8283c');
+                    ctx.fillStyle = g;
+                    ctx.beginPath(); ctx.moveTo(0, -s * 0.8);
+                    ctx.bezierCurveTo(s * 1.1, -s * 1.2, s * 1.1, s * 0.6, 0, s);
+                    ctx.bezierCurveTo(-s * 1.1, s * 0.6, -s * 1.1, -s * 1.2, 0, -s * 0.8); ctx.fill();
+                }
+            },
+        },
     };
 
     const startAmbient = (name) => {
@@ -1018,11 +1079,38 @@
         }), { threshold: 0.15 });
         $$('.rv').forEach((n) => io.observe(n));
 
+        // Scroll-spy dock: section aktif = section terakhir yang bagian atasnya sudah melewati 35% layar.
+        // (IntersectionObserver ber-threshold gagal untuk section yang lebih tinggi dari layar.)
         const links = $$('.dock a');
-        const spy = new IntersectionObserver((entries) => entries.forEach((e) => {
-            if (e.isIntersecting) links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-        }), { threshold: 0.4 });
-        $$('main section[id]').forEach((s) => spy.observe(s));
+        const targets = links.map((a) => $(a.getAttribute('href')));
+        let locked = false, unlockTimer, ticking = false;
+        const setActive = (i) => links.forEach((a, k) => a.classList.toggle('active', k === i));
+        const spy = () => {
+            ticking = false;
+            if (locked) return;
+            const line = innerHeight * 0.35;
+            let cur = 0;
+            targets.forEach((s, k) => { if (s && s.getBoundingClientRect().top <= line) cur = k; });
+            if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) cur = targets.length - 1;
+            setActive(cur);
+        };
+        addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+        addEventListener('resize', spy);
+
+        // Klik dock: langsung tandai aktif & kunci spy selama smooth scroll agar ikon tidak berkedip
+        const unlock = () => { clearTimeout(unlockTimer); locked = false; spy(); };
+        links.forEach((a, k) => a.addEventListener('click', (e) => {
+            if (!targets[k]) return;
+            e.preventDefault();
+            setActive(k);
+            locked = true;
+            clearTimeout(unlockTimer);
+            unlockTimer = setTimeout(unlock, 1500);
+            addEventListener('scrollend', unlock, { once: true });
+            targets[k].scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
+            a.blur();
+        }));
+        spy();
     };
 
     let opening = false;

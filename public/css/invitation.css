@@ -228,9 +228,11 @@ form input:focus, form select:focus, form textarea:focus { outline: 2px solid va
     border: 1px solid var(--line); box-shadow: 0 10px 30px -15px rgba(0,0,0,.4); transition: translate .6s .8s;
 }
 body.opened .dock { translate: -50% 0; }
-.dock a { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: var(--primary); }
-.dock a:hover, .dock a.active { background: var(--primary); color: var(--bg); }
-.dock svg, .music-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.dock a { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: var(--primary); transition: background .3s, color .3s; -webkit-tap-highlight-color: transparent; outline: none; }
+.dock a.active { background: var(--primary); color: var(--bg); }
+.dock a:focus-visible { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--primary); }
+/* hover hanya untuk perangkat ber-mouse: di layar sentuh hover "nyangkut" sehingga 2 ikon tampak aktif */
+@media (hover: hover) { .dock a:not(.active):hover { background: color-mix(in srgb, var(--primary) 18%, transparent); } }.dock svg, .music-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
 .music-btn { position: fixed; z-index: 41; right: 16px; bottom: 80px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--primary); display: none; place-items: center; cursor: pointer; }
 body.opened .music-btn { display: grid; }
 .music-btn.playing { animation: spin 4s linear infinite; }

@@ -17,6 +17,12 @@
         .tpl .orn.tl { top: 0; left: 0; } .tpl .orn.br { bottom: 0; right: 0; transform: scale(-1,-1); }
         @keyframes floaty { 50% { transform: translateY(-8px); } }
         .floaty { animation: floaty 4s ease-in-out infinite; }
+        /* Warna tombol kategori diatur di sini (bukan utility Tailwind) agar state aktif tidak bentrok dengan bg-white */
+        .filter { background: #fff; color: #44403c; border-color: #d6d3d1; transition: background .2s, color .2s, border-color .2s; -webkit-tap-highlight-color: transparent; }
+        .filter:hover { background: #f5f5f4; color: #1c1917; }
+        .filter.is-active, .filter.is-active:hover { background: #1c1917; color: #fff; border-color: #1c1917; }
+        .filter:focus { outline: none; }
+        .filter:focus-visible { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #f43f5e; }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
@@ -39,9 +45,9 @@
         <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">{{ $templates->count() }} Template Dinamis<br><span class="text-rose-500">dengan Animasi Unik</span></h1>
         <p class="mt-5 max-w-2xl mx-auto text-stone-600">Setiap template punya animasi pembuka, efek partikel latar, dan gaya transisi yang berbeda. Isi data mempelai sekali, tampilan langsung menyesuaikan — lengkap dengan RSVP, buku tamu, galeri, peta, countdown, musik, dan amplop digital.</p>
         <div class="mt-8 flex flex-wrap justify-center gap-2" id="filters">
-            <button data-cat="all" class="filter px-4 py-2 rounded-full text-sm border border-stone-300 bg-stone-900 text-white">Semua</button>
+            <button type="button" data-cat="all" class="filter is-active px-4 py-2 rounded-full text-sm font-semibold border" aria-pressed="true">Semua</button>
             @foreach ($categories as $cat)
-                <button data-cat="{{ $cat }}" class="filter px-4 py-2 rounded-full text-sm border border-stone-300 bg-white">{{ $cat }}</button>
+                <button type="button" data-cat="{{ $cat }}" class="filter px-4 py-2 rounded-full text-sm font-semibold border" aria-pressed="false">{{ $cat }}</button>
             @endforeach
         </div>
     </div>
@@ -87,8 +93,10 @@
 
 <script>
     document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter').forEach(b => b.classList.remove('bg-stone-900', 'text-white'));
-        btn.classList.add('bg-stone-900', 'text-white');
+        document.querySelectorAll('.filter').forEach(b => {
+            b.classList.toggle('is-active', b === btn);
+            b.setAttribute('aria-pressed', b === btn);
+        });
         document.querySelectorAll('.tpl').forEach(card => {
             card.hidden = btn.dataset.cat !== 'all' && card.dataset.cat !== btn.dataset.cat;
         });

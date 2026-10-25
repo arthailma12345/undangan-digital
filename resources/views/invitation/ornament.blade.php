@@ -99,6 +99,23 @@
         @endforeach
         <path d="M4 4h192M4 4v192M4 12h180M12 4v180"/>
         @break
+    @case('kawung')
+        {{-- Bingkai ganda bergerigi tumpal + motif kawung di sudut + sulur --}}
+        <path d="M4 4h192M4 4v192M14 14h170M14 14v170"/>
+        @foreach (range(30, 170, 20) as $v)
+            <path d="M{{ $v - 8 }} 14l8 12 8-12M14 {{ $v - 8 }}l12 8-12 8" fill="currentColor" opacity=".35"/>
+        @endforeach
+        <g transform="translate(52 52) rotate(45)">
+            @foreach ([[0, -15], [15, 0], [0, 15], [-15, 0]] as [$x, $y])
+                <ellipse cx="{{ $x }}" cy="{{ $y }}" rx="{{ $x ? 13 : 7 }}" ry="{{ $x ? 7 : 13 }}" fill="currentColor" opacity=".3"/>
+                <ellipse cx="{{ $x }}" cy="{{ $y }}" rx="{{ $x ? 13 : 7 }}" ry="{{ $x ? 7 : 13 }}"/>
+                <circle cx="{{ $x * 1.25 }}" cy="{{ $y * 1.25 }}" r="1.6" fill="currentColor"/>
+            @endforeach
+            <path d="M0-4L4 0 0 4-4 0z" fill="currentColor"/>
+        </g>
+        <path d="M84 40c14-10 30-6 34 6 3 10-8 16-14 9-4-5 1-11 6-8M40 84c-10 14-6 30 6 34 10 3 16-8 9-14-5-4-11 1-8 6"/>
+        <path d="M120 34c10 2 20-2 28-10M34 120c2 10-2 20-10 28" opacity=".7"/>
+        @break
     @case('moon')
         <path d="M70 20a40 40 0 1 0 40 56 32 32 0 1 1-40-56z" fill="currentColor" opacity=".3"/>
         <path d="M70 20a40 40 0 1 0 40 56 32 32 0 1 1-40-56z"/>
