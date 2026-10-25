@@ -46,7 +46,7 @@ return [
         'fonts' => ['script' => 'Allura', 'heading' => 'Cinzel', 'body' => 'Raleway'],
         'ornament' => 'stars', 'cover' => 'circle', 'opening' => 'iris-close', 'ambient' => 'shooting-stars', 'reveal' => 'zoom-out', 'gallery' => 'masonry'],
 
-    ['slug' => 'javanese-heritage', 'name' => 'Javanese Heritage', 'category' => 'Adat', 'dark' => true,
+    ['slug' => 'javanese-heritage', 'name' => 'Javanese Heritage', 'category' => 'Jawa', 'dark' => true,
         'colors' => ['bg' => '#2a1a0e', 'surface' => '#3a2516', 'primary' => '#d9a441', 'accent' => '#9c2a1d', 'text' => '#f6ead2', 'muted' => '#c7ab83'],
         'fonts' => ['script' => 'Pinyon Script', 'heading' => 'Cinzel Decorative', 'body' => 'Marcellus'],
         'ornament' => 'batik', 'cover' => 'frame', 'opening' => 'gebyok-shutters', 'ambient' => 'jasmine', 'reveal' => 'flip', 'gallery' => 'mosaic'],
@@ -173,7 +173,7 @@ return [
         'ornament' => 'leaves', 'cover' => 'full', 'opening' => 'farm-sunrise', 'ambient' => 'farm-life', 'reveal' => 'fade-up', 'gallery' => 'polaroid'],
 
     // Adat Jawa keraton: warna batik sogan, ornamen kawung + tumpal, pembuka gunungan wayang, taburan kembang setaman
-    ['slug' => 'keraton-sogan', 'name' => 'Keraton Sogan', 'category' => 'Adat', 'dark' => false,
+    ['slug' => 'keraton-sogan', 'name' => 'Keraton Sogan', 'category' => 'Jawa', 'dark' => false,
         'colors' => ['bg' => '#f4ead7', 'surface' => '#fffaf0', 'primary' => '#7a4521', 'accent' => '#c9993a', 'text' => '#3a2213', 'muted' => '#8a6a4c'],
         'fonts' => ['script' => 'Italianno', 'heading' => 'Cinzel', 'body' => 'Marcellus'],
         'ornament' => 'kawung', 'cover' => 'arch', 'opening' => 'kayon', 'ambient' => 'kembang-setaman', 'reveal' => 'mask-up', 'gallery' => 'carousel'],
